@@ -8,6 +8,8 @@ https://stellarburgers.education-services.ru/
 
 Список проверок:
 
+test_1-1_auto_registration.py - успешная регистрация, логин и пароль создаются автоматически
+
 test_1_registration.py - успешная регистрация
 
 test_2_registration_again.py - повторная регистрация с таким же email
