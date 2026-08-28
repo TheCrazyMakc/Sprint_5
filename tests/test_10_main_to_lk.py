@@ -6,4 +6,3 @@ from locators import Locators
 def test_go_to_personal_account(driver):
   # переход по кнопке "Личный кабинет"
   WebDriverWait(driver, 3).until(EC.element_to_be_clickable((Locators.PERSONAL_ACCOUNT_BUTTON))).click()
-  print("✅ Тест пройден: Успешный переход на страницу личного кабинета")

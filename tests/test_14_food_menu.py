@@ -22,4 +22,3 @@ def test_go_to_personal_account(driver):
   WebDriverWait(driver, 3).until(EC.element_to_be_clickable((Locators.SAUCES_TAB))).click()
   WebDriverWait(driver, 3).until(EC.element_to_be_clickable((Locators.FILLINGS_TAB))).click()
   WebDriverWait(driver, 3).until(EC.element_to_be_clickable((Locators.BUNS_TAB))).click()
-  print("✅ Тест пройден")

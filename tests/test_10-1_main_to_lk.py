@@ -24,5 +24,3 @@ def test_go_to_personal_account(driver):
   current_url = driver.current_url
   expected_url = "https://stellarburgers.education-services.ru/account/profile"
   assert current_url == expected_url, f"Ожидался URL '{expected_url}', а получен '{current_url}'"
-
-  print("✅ Тест пройден: Успешный переход в личный кабинет авторизированного пользователя")

@@ -30,5 +30,3 @@ def test_go_to_personal_account(driver):
   # Проверяем, что URL не изменился
   current_url_after = driver.current_url
   assert current_url_before == current_url_after, "Страница изменилась при пустом имени!"
-
-  print("✅ Тест пройден! URL не изменился при пустом имени")

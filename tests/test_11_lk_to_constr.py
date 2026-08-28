@@ -8,4 +8,3 @@ def test_go_to_personal_account(driver):
   WebDriverWait(driver, 3).until(EC.element_to_be_clickable((Locators.PERSONAL_ACCOUNT_BUTTON))).click()
   # переход по кнопке "Конструктор"
   WebDriverWait(driver, 3).until(EC.element_to_be_clickable((Locators.CONSTRUCTOR_BUTTON))).click()
-  print("✅ Тест пройден")

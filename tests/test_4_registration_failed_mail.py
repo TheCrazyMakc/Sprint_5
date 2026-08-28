@@ -29,4 +29,3 @@ def test_go_to_personal_account(driver):
 
   # Проверяем текст ошибки
   assert error_message.text == "Такой пользователь уже существует"
-  print("✅ Тест завершен!")

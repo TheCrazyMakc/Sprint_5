@@ -26,4 +26,3 @@ def test_go_to_personal_account(driver):
 
   # Проверяем, что повторная регистрация выдает ошибку
   WebDriverWait(driver, 10).until(EC.visibility_of_element_located(Locators.ERROR_MESSAGE))
-  print("✅ Тест пройден: появляется предупреждение - Такой пользователь уже существует")

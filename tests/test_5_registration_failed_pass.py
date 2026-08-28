@@ -31,4 +31,3 @@ def test_go_to_personal_account(driver):
 
     # Проверяем текст ошибки
     assert error_message.text == "Некорректный пароль"
-    print("✅ Тест завершен!")

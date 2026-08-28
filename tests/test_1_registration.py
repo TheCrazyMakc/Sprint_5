@@ -26,4 +26,3 @@ def test_go_to_personal_account(driver):
 
   # Проверяем, что регистрация успешная (появилась кнопка "Войти")
   WebDriverWait(driver, 10).until(EC.element_to_be_clickable(Locators.LOGIN_BUTTON))
-  print("✅ Тест пройден: Успешная регистрация")

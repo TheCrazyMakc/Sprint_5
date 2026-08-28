@@ -21,4 +21,3 @@ def test_go_to_personal_account(driver):
   password_form.send_keys("Qwerty123")
 
   driver.find_element(*Locators.LOGIN_BUTTON).click()
-  print("✅ Тест пройден: Успешный вход")

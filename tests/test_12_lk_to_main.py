@@ -8,4 +8,3 @@ def test_go_to_personal_account(driver):
   WebDriverWait(driver, 3).until(EC.element_to_be_clickable((Locators.PERSONAL_ACCOUNT_BUTTON))).click()
   # переход на главную страницу при нажатии на логотип
   WebDriverWait(driver, 3).until(EC.element_to_be_clickable((Locators.LOGO_BUTTON))).click()
-  print("✅ Тест пройден")
