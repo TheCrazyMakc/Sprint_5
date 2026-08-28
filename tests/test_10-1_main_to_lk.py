@@ -2,6 +2,7 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 from locators import Locators
+from urls import Urls
 
 def test_go_to_personal_account(driver):
   # переход по кнопке "Личный кабинет"
@@ -19,7 +20,7 @@ def test_go_to_personal_account(driver):
   driver.find_element(*Locators.LOGIN_BUTTON).click()
 
   WebDriverWait(driver, 10).until(
-        EC.url_contains("stellarburgers")
+        EC.url_contains(Urls.DOMAIN)
     )
 
   WebDriverWait(driver, 10).until(
@@ -27,9 +28,9 @@ def test_go_to_personal_account(driver):
     ).click()
 
   WebDriverWait(driver, 10).until(
-        EC.url_contains("/account/profile")
+        EC.url_contains(Urls.PROFILE_ENDPOINT)
     )
 
   current_url = driver.current_url
-  expected_url = "https://stellarburgers.education-services.ru/account/profile"
+  expected_url = Urls.PROFILE_PAGE  # ← Используем константу
   assert current_url == expected_url, f"Ожидался URL '{expected_url}', а получен '{current_url}'"
