@@ -16,7 +16,7 @@ def test_go_to_personal_account(driver):
 
   mail_form = driver.find_element(*Locators.EMAIL_INPUT)
   mail_form.clear()
-  mail_form.send_keys("testtestov52005@yandex.ru")
+  mail_form.send_keys("testtestov52006@yandex.ru")
 
   password_form = driver.find_element(*Locators.PASSWORD_INPUT)
   password_form.clear()
