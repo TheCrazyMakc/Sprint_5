@@ -4,17 +4,8 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 from locators import Locators
+from helpers import generate_unique_email, generate_password
 
-
-def generate_unique_email():
-    """Генерирует уникальный email с случайным числом"""
-    random_number = random.randint(100, 999)
-    return f"testtestov52{random_number}@yandex.ru"
-
-def generate_password(length=6):
-    """Генерирует пароль заданной длины (по умолчанию 6 символов)"""
-    characters = string.ascii_letters + string.digits
-    return ''.join(random.choice(characters) for _ in range(length))
 
 def test_go_to_personal_account(driver):
     # Генерируем новый email перед каждым тестом
