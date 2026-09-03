@@ -8,48 +8,49 @@ class TestMenu:
     """Класс для тестов меню продуктов"""
     
     @pytest.mark.menu
-    def test_food_menu_sections(self, driver):
-        """Переходы по разделам меню"""
-        # Вход
-        WebDriverWait(driver, 3).until(
-            EC.element_to_be_clickable(Locators.LOGIN_BUTTON_MAIN)
-        ).click()
+    def test_sauces_tab_active(self, driver):
+        """Проверка, что при клике на 'Соусы' добавляется активный класс"""
+        # Клик на таб "Соусы"
+        assert WebDriverWait(driver, 3).until(
+            EC.element_to_be_clickable(Locators.SAUCES_TAB)
+        ), "Таб 'Соусы' не появился!"
+        driver.find_element(*Locators.SAUCES_TAB).click()
 
-        mail_form = driver.find_element(*Locators.EMAIL_INPUT)
-        mail_form.clear()
-        mail_form.send_keys("testtestov5299@yandex.ru")
+        # Проверяем, что добавился класс активности
+        sauces_tab = driver.find_element(*Locators.SAUCES_TAB)
+        class_attribute = sauces_tab.get_attribute("class")
+        assert "tab_tab_type_current__2BEPc" in class_attribute, f"Класс активности не добавлен для таба 'Соусы'. Класс: {class_attribute}"
 
-        password_form = driver.find_element(*Locators.PASSWORD_INPUT)
-        password_form.clear()
-        password_form.send_keys("Qwerty123")
+    @pytest.mark.menu
+    def test_fillings_tab_active(self, driver):
+        """Проверка, что при клике на 'Начинки' добавляется активный класс"""
+        # Клик на таб "Начинки"
+        assert WebDriverWait(driver, 3).until(
+            EC.element_to_be_clickable(Locators.FILLINGS_TAB)
+        ), "Таб 'Начинки' не появился!"
+        driver.find_element(*Locators.FILLINGS_TAB).click()
 
-        driver.find_element(*Locators.LOGIN_BUTTON).click()
+        # Проверяем, что добавился класс активности
+        fillings_tab = driver.find_element(*Locators.FILLINGS_TAB)
+        class_attribute = fillings_tab.get_attribute("class")
+        assert "tab_tab_type_current__2BEPc" in class_attribute, f"Класс активности не добавлен для таба 'Начинки'. Класс: {class_attribute}"
 
-        # Проверка пунктов меню
-        WebDriverWait(driver, 3).until(EC.element_to_be_clickable((Locators.SAUCES_TAB))).click()
-        WebDriverWait(driver, 3).until(EC.element_to_be_clickable((Locators.FILLINGS_TAB))).click()
-        WebDriverWait(driver, 3).until(EC.element_to_be_clickable((Locators.BUNS_TAB))).click()
+    @pytest.mark.menu
+    def test_buns_tab_active(self, driver):
+        """Проверка, что при клике на 'Булки' добавляется активный класс"""
+        # Сначала кликаем на другой таб (чтобы снять активность с "Булок")
+        assert WebDriverWait(driver, 3).until(
+            EC.element_to_be_clickable(Locators.SAUCES_TAB)
+        ), "Таб 'Соусы' не появился!"
+        driver.find_element(*Locators.SAUCES_TAB).click()
 
-        # Проверка разделов меню
-        # WebDriverWait(driver, 3).until(
-        #     EC.element_to_be_clickable(Locators.SAUCES_TAB)
-        # ).click()
-        # WebDriverWait(driver, 3).until(
-        #     EC.visibility_of_element_located(Locators.SAUCES_SECTION)
-        # )
-        # print("✅ Раздел 'Соусы'")
+        # Клик на таб "Булки"
+        assert WebDriverWait(driver, 3).until(
+            EC.element_to_be_clickable(Locators.BUNS_TAB)
+        ), "Таб 'Булки' не появился!"
+        driver.find_element(*Locators.BUNS_TAB).click()
 
-        # WebDriverWait(driver, 3).until(
-        #     EC.element_to_be_clickable(Locators.FILLINGS_TAB)
-        # ).click()
-        # WebDriverWait(driver, 3).until(
-        #     EC.visibility_of_element_located(Locators.FILLINGS_SECTION)
-        # )
-        # print("✅ Раздел 'Начинки'")
-
-        # WebDriverWait(driver, 3).until(
-        #     EC.element_to_be_clickable(Locators.BUNS_TAB)
-        # ).click()
-        # WebDriverWait(driver, 3).until(
-        #     EC.visibility_of_element_located(Locators.BUNS_SECTION)
-        # )
+        # Проверяем, что добавился класс активности
+        buns_tab = driver.find_element(*Locators.BUNS_TAB)
+        class_attribute = buns_tab.get_attribute("class")
+        assert "tab_tab_type_current__2BEPc" in class_attribute, f"Класс активности не добавлен для таба 'Булки'. Класс: {class_attribute}"

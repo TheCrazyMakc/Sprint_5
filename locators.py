@@ -22,9 +22,9 @@ class Locators:
     REGISTER_LINK = (By.XPATH, "//a[contains(., 'Зарегистрироваться')]")
     
     # Меню продуктов
-    SAUCES_TAB = (By.XPATH, "//span[contains(., 'Соусы')]")
-    FILLINGS_TAB = (By.XPATH, "//span[contains(., 'Начинки')]")
-    BUNS_TAB = (By.XPATH, "//span[contains(., 'Булки')]")
+    SAUCES_TAB = (By.XPATH, "//span[contains(., 'Соусы')]/parent::div")
+    FILLINGS_TAB = (By.XPATH, "//span[contains(., 'Начинки')]/parent::div")
+    BUNS_TAB = (By.XPATH, "//span[contains(., 'Булки')]/parent::div")
     
     # Разделы продуктов (для проверки)
     SAUCES_SECTION = (By.XPATH, "//h2[contains(., 'Соусы')]")

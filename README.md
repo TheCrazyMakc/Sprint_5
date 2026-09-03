@@ -3,7 +3,7 @@
 https://stellarburgers.education-services.ru/
 
 
-Чтобы выполнить все проверки сразу, нужно запустить файл: run_all_tests.py
+Чтобы выполнить все проверки сразу: pytest tests/ -v -s
 
 
 Список проверок:
