@@ -11,10 +11,9 @@ class TestMenu:
     def test_sauces_tab_active(self, driver):
         """Проверка, что при клике на 'Соусы' добавляется активный класс"""
         # Клик на таб "Соусы"
-        assert WebDriverWait(driver, 3).until(
+        WebDriverWait(driver, 3).until(
             EC.element_to_be_clickable(Locators.SAUCES_TAB)
-        ), "Таб 'Соусы' не появился!"
-        driver.find_element(*Locators.SAUCES_TAB).click()
+        ).click()
 
         # Проверяем, что добавился класс активности
         sauces_tab = driver.find_element(*Locators.SAUCES_TAB)
@@ -25,10 +24,9 @@ class TestMenu:
     def test_fillings_tab_active(self, driver):
         """Проверка, что при клике на 'Начинки' добавляется активный класс"""
         # Клик на таб "Начинки"
-        assert WebDriverWait(driver, 3).until(
+        WebDriverWait(driver, 3).until(
             EC.element_to_be_clickable(Locators.FILLINGS_TAB)
-        ), "Таб 'Начинки' не появился!"
-        driver.find_element(*Locators.FILLINGS_TAB).click()
+        ).click()
 
         # Проверяем, что добавился класс активности
         fillings_tab = driver.find_element(*Locators.FILLINGS_TAB)
@@ -39,16 +37,14 @@ class TestMenu:
     def test_buns_tab_active(self, driver):
         """Проверка, что при клике на 'Булки' добавляется активный класс"""
         # Сначала кликаем на другой таб (чтобы снять активность с "Булок")
-        assert WebDriverWait(driver, 3).until(
+        WebDriverWait(driver, 3).until(
             EC.element_to_be_clickable(Locators.SAUCES_TAB)
-        ), "Таб 'Соусы' не появился!"
-        driver.find_element(*Locators.SAUCES_TAB).click()
+        ).click()
 
         # Клик на таб "Булки"
-        assert WebDriverWait(driver, 3).until(
+        WebDriverWait(driver, 3).until(
             EC.element_to_be_clickable(Locators.BUNS_TAB)
-        ), "Таб 'Булки' не появился!"
-        driver.find_element(*Locators.BUNS_TAB).click()
+        ).click()
 
         # Проверяем, что добавился класс активности
         buns_tab = driver.find_element(*Locators.BUNS_TAB)

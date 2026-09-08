@@ -18,15 +18,13 @@ class TestRegistration:
         unique_password = generate_password(6)
         
         # Переход на страницу регистрации
-        assert WebDriverWait(driver, 3).until(
+        WebDriverWait(driver, 3).until(
             EC.element_to_be_clickable(Locators.LOGIN_BUTTON_MAIN)
-        ), "Кнопка 'Войти в аккаунт' не появилась!"
-        driver.find_element(*Locators.LOGIN_BUTTON_MAIN).click()
+        ).click()
         
-        assert WebDriverWait(driver, 3).until(
+        WebDriverWait(driver, 3).until(
             EC.element_to_be_clickable(Locators.REGISTER_LINK)
-        ), "Ссылка 'Зарегистрироваться' не появилась!"
-        driver.find_element(*Locators.REGISTER_LINK).click()
+        ).click()
 
         # Заполнение формы
         name_form = driver.find_element(*Locators.NAME_INPUT)
@@ -41,10 +39,9 @@ class TestRegistration:
         password_form.clear()
         password_form.send_keys(unique_password)
 
-        assert WebDriverWait(driver, 3).until(
+        WebDriverWait(driver, 3).until(
             EC.element_to_be_clickable(Locators.REGISTER_BUTTON)
-        ), "Кнопка 'Зарегистрироваться' не появилась!"
-        driver.find_element(*Locators.REGISTER_BUTTON).click()
+        ).click()
 
         # Проверка успешной регистрации
         assert WebDriverWait(driver, 10).until(
@@ -55,15 +52,13 @@ class TestRegistration:
     def test_registration_with_existing_email(self, driver):
         """Регистрация с уже существующим email"""
         # переход на страницу регистрации
-        assert WebDriverWait(driver, 3).until(
+        WebDriverWait(driver, 3).until(
             EC.element_to_be_clickable(Locators.LOGIN_BUTTON_MAIN)
-        ), "Кнопка 'Войти в аккаунт' не появилась!"
-        driver.find_element(*Locators.LOGIN_BUTTON_MAIN).click()
+        ).click()
         
-        assert WebDriverWait(driver, 3).until(
+        WebDriverWait(driver, 3).until(
             EC.element_to_be_clickable(Locators.REGISTER_LINK)
-        ), "Ссылка 'Зарегистрироваться' не появилась!"
-        driver.find_element(*Locators.REGISTER_LINK).click()
+        ).click()
 
         # Заполнение формы существующим email
         name_form = driver.find_element(*Locators.NAME_INPUT)
@@ -78,10 +73,9 @@ class TestRegistration:
         password_form.clear()
         password_form.send_keys("Qwerty123")
 
-        assert WebDriverWait(driver, 3).until(
+        WebDriverWait(driver, 3).until(
             EC.element_to_be_clickable(Locators.REGISTER_BUTTON)
-        ), "Кнопка 'Зарегистрироваться' не появилась!"
-        driver.find_element(*Locators.REGISTER_BUTTON).click()
+        ).click()
 
         try:
             error_element = WebDriverWait(driver, 5).until(
@@ -97,15 +91,13 @@ class TestRegistration:
     def test_registration_with_empty_name(self, driver):
         """Регистрация с пустым именем"""
         # переход на страницу регистрации
-        assert WebDriverWait(driver, 3).until(
+        WebDriverWait(driver, 3).until(
             EC.element_to_be_clickable(Locators.LOGIN_BUTTON_MAIN)
-        ), "Кнопка 'Войти в аккаунт' не появилась!"
-        driver.find_element(*Locators.LOGIN_BUTTON_MAIN).click()
+        ).click()
         
-        assert WebDriverWait(driver, 3).until(
+        WebDriverWait(driver, 3).until(
             EC.element_to_be_clickable(Locators.REGISTER_LINK)
-        ), "Ссылка 'Зарегистрироваться' не появилась!"
-        driver.find_element(*Locators.REGISTER_LINK).click()
+        ).click()
 
         current_url_before = driver.current_url
 
@@ -122,10 +114,9 @@ class TestRegistration:
         password_form.clear()
         password_form.send_keys("Qwerty123")
 
-        assert WebDriverWait(driver, 3).until(
+        WebDriverWait(driver, 3).until(
             EC.element_to_be_clickable(Locators.REGISTER_BUTTON)
-        ), "Кнопка 'Зарегистрироваться' не появилась!"
-        driver.find_element(*Locators.REGISTER_BUTTON).click()
+        ).click()
 
         # Проверка, что URL не изменился
         current_url_after = driver.current_url
@@ -136,15 +127,13 @@ class TestRegistration:
     def test_registration_with_invalid_email(self, driver):
         """Регистрация с неверным email"""
         # переход на страницу регистрации
-        assert WebDriverWait(driver, 3).until(
+        WebDriverWait(driver, 3).until(
             EC.element_to_be_clickable(Locators.LOGIN_BUTTON_MAIN)
-        ), "Кнопка 'Войти в аккаунт' не появилась!"
-        driver.find_element(*Locators.LOGIN_BUTTON_MAIN).click()
+        ).click()
         
-        assert WebDriverWait(driver, 3).until(
+        WebDriverWait(driver, 3).until(
             EC.element_to_be_clickable(Locators.REGISTER_LINK)
-        ), "Ссылка 'Зарегистрироваться' не появилась!"
-        driver.find_element(*Locators.REGISTER_LINK).click()
+        ).click()
 
         # Заполнение формы с неверным email
         name_form = driver.find_element(*Locators.NAME_INPUT)
@@ -159,10 +148,9 @@ class TestRegistration:
         password_form.clear()
         password_form.send_keys("Qwerty123")
 
-        assert WebDriverWait(driver, 3).until(
+        WebDriverWait(driver, 3).until(
             EC.element_to_be_clickable(Locators.REGISTER_BUTTON)
-        ), "Кнопка 'Зарегистрироваться' не появилась!"
-        driver.find_element(*Locators.REGISTER_BUTTON).click()
+        ).click()
 
         try:
             error_element = WebDriverWait(driver, 5).until(
@@ -178,15 +166,13 @@ class TestRegistration:
     def test_registration_with_short_password(self, driver):
         """Регистрация с коротким паролем (< 6 символов)"""
         # переход на страницу регистрации
-        assert WebDriverWait(driver, 3).until(
+        WebDriverWait(driver, 3).until(
             EC.element_to_be_clickable(Locators.LOGIN_BUTTON_MAIN)
-        ), "Кнопка 'Войти в аккаунт' не появилась!"
-        driver.find_element(*Locators.LOGIN_BUTTON_MAIN).click()
+        ).click()
         
-        assert WebDriverWait(driver, 3).until(
+        WebDriverWait(driver, 3).until(
             EC.element_to_be_clickable(Locators.REGISTER_LINK)
-        ), "Ссылка 'Зарегистрироваться' не появилась!"
-        driver.find_element(*Locators.REGISTER_LINK).click()
+        ).click()
 
         # Заполнение формы с коротким паролем
         name_form = driver.find_element(*Locators.NAME_INPUT)
@@ -201,10 +187,9 @@ class TestRegistration:
         password_form.clear()
         password_form.send_keys("12345")
 
-        assert WebDriverWait(driver, 3).until(
+        WebDriverWait(driver, 3).until(
             EC.element_to_be_clickable(Locators.REGISTER_BUTTON)
-        ), "Кнопка 'Зарегистрироваться' не появилась!"
-        driver.find_element(*Locators.REGISTER_BUTTON).click()
+        ).click()
 
         error_elements = driver.find_elements(By.XPATH, "//p[contains(@class, 'input__error') and contains(text(), 'Некорректный пароль')]")
         assert len(error_elements) > 0, "Сообщение об ошибке 'Некорректный пароль' не найдено!"
