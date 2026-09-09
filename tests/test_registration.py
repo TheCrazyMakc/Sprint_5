@@ -77,15 +77,11 @@ class TestRegistration:
             EC.element_to_be_clickable(Locators.REGISTER_BUTTON)
         ).click()
 
-        try:
-            error_element = WebDriverWait(driver, 5).until(
-                EC.visibility_of_element_located((By.XPATH, "//p[contains(@class, 'input__error') and contains(text(), 'Такой пользователь уже существует')]"))
-            )
-            assert error_element.is_displayed(), "Элемент ошибки не отображается!"
-        except TimeoutException:
-            # Если ошибка не появилась, проверяем, что мы на странице регистрации
-            assert "register" in driver.current_url, "Ошибка не появилась, но и регистрация не прошла!"
-            assert False, "Сообщение об ошибке 'Такой пользователь уже существует' не появилось!"
+        error_element = WebDriverWait(driver, 5).until(
+        EC.visibility_of_element_located((By.XPATH, "//p[contains(@class, 'input__error') and contains(text(), 'Такой пользователь уже существует')]"))
+        )
+        assert error_element.is_displayed(), "Элемент ошибки не отображается!"
+
 
     @pytest.mark.registration
     def test_registration_with_empty_name(self, driver):
@@ -152,15 +148,11 @@ class TestRegistration:
             EC.element_to_be_clickable(Locators.REGISTER_BUTTON)
         ).click()
 
-        try:
-            error_element = WebDriverWait(driver, 5).until(
-                EC.visibility_of_element_located((By.XPATH, "//p[contains(@class, 'input__error') and contains(text(), 'Такой пользователь уже существует')]"))
-            )
-            assert error_element.is_displayed(), "Элемент ошибки не отображается!"
-        except TimeoutException:
-            # Если ошибка не появилась, проверяем, что мы на странице регистрации
-            assert "register" in driver.current_url, "Ошибка не появилась, но и регистрация не прошла!"
-            assert False, "Сообщение об ошибке 'Такой пользователь уже существует' не появилось!"
+        error_element = WebDriverWait(driver, 5).until(
+            EC.visibility_of_element_located((By.XPATH, "//p[contains(@class, 'input__error') and contains(text(), 'Такой пользователь уже существует')]"))
+        )
+        assert error_element.is_displayed(), "Элемент ошибки не отображается!"
+
 
     @pytest.mark.registration
     def test_registration_with_short_password(self, driver):
