@@ -78,7 +78,7 @@ class TestRegistration:
         ).click()
 
         error_element = WebDriverWait(driver, 5).until(
-        EC.visibility_of_element_located((By.XPATH, "//p[contains(@class, 'input__error') and contains(text(), 'Такой пользователь уже существует')]"))
+        EC.visibility_of_element_located(Locators.EXISTING_EMAIL_ERROR_MESSAGE)
         )
         assert error_element.is_displayed(), "Элемент ошибки не отображается!"
 
@@ -149,7 +149,7 @@ class TestRegistration:
         ).click()
 
         error_element = WebDriverWait(driver, 5).until(
-            EC.visibility_of_element_located((By.XPATH, "//p[contains(@class, 'input__error') and contains(text(), 'Такой пользователь уже существует')]"))
+        EC.visibility_of_element_located(Locators.EXISTING_EMAIL_ERROR_MESSAGE)
         )
         assert error_element.is_displayed(), "Элемент ошибки не отображается!"
 
@@ -183,6 +183,6 @@ class TestRegistration:
             EC.element_to_be_clickable(Locators.REGISTER_BUTTON)
         ).click()
 
-        error_elements = driver.find_elements(By.XPATH, "//p[contains(@class, 'input__error') and contains(text(), 'Некорректный пароль')]")
+        error_elements = driver.find_elements(*Locators.PASSWORD_ERROR_MESSAGE)
         assert len(error_elements) > 0, "Сообщение об ошибке 'Некорректный пароль' не найдено!"
         assert error_elements[0].is_displayed(), "Элемент ошибки не отображается!"

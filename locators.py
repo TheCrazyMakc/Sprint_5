@@ -39,3 +39,8 @@ class Locators:
     NAME_CHECK_INPUT = (By.XPATH, "//input[contains(., 'TestName')]")
     EMAIL_CHECK_INPUT = (By.XPATH, "//input[contains(., 'testtestov5299@yandex.ru')]")
     PASSWORD_CHECK_INPUT = (By.XPATH, "//input[contains(., 'Qwerty123')]")
+
+    # Ошибки
+    ERROR_MESSAGE = (By.XPATH, "//p[contains(@class, 'input__error')]")
+    PASSWORD_ERROR_MESSAGE = (By.XPATH, "//p[contains(@class, 'input__error') and contains(text(), 'Некорректный пароль')]")
+    EXISTING_EMAIL_ERROR_MESSAGE = (By.XPATH, "//p[contains(@class, 'input__error') and contains(text(), 'Такой пользователь уже существует')]")
