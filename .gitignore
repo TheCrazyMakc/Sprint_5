@@ -1,0 +1,48 @@
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Pytest cache
+.pytest_cache/
+.cache/
+*.log
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Virtual Environment
+venv/
+.venv/
+env/
+ENV/
+
+# Reports
+reports/
+allure-results/
+allure-report/
+*.html
+*.xml
+*.json
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Selenium logs
+geckodriver.log
+chromedriver.log
+
+# Secrets
+*.pem
+*.key
+*.crt
+*.p12
+secrets.py
+config.py
